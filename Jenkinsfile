@@ -7,7 +7,7 @@ pipeline {
 
     parameters {
         string(name: 'BRANCH_NAME',
-               defaultValue: 'main',
+               defaultValue: 'master',
                description: 'Git branch to build')
         choice(name: 'ENV',
                choices: ['DEV','QA','UAT','PROD'],
