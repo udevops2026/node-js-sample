@@ -61,35 +61,22 @@ pipeline {
             }
         }
 
-        stage('Deploy Application') {
-            when {
-                expression { params.ENV != 'PROD' }
-            }
-            steps {
-                echo "Deploying to ${params.ENV}..."
-                sh """
-                    # Copy app files to deployment directory
-                    sudo mkdir -p ${APP_DIR}
-                    sudo cp -r . ${APP_DIR}/
+stage('Deploy Application') {
+    steps {
+        echo 'Deploying Node.js App...'
+        sh '''
+        sudo mkdir -p /opt/nodejs-app
+        sudo cp -r . /opt/nodejs-app/
+        sudo chown -R ubuntu:ubuntu /opt/nodejs-app
 
-                    # Install PM2 if not installed
-                    # PM2 = process manager for Node.js
-                    # Like systemd for Node apps
-                    sudo npm install -g pm2
+        cd /opt/nodejs-app
 
-                    # Stop old instance
-                    pm2 stop ${APP_NAME} || true
-                    pm2 delete ${APP_NAME} || true
-
-                    # Start new instance
-                    cd ${APP_DIR}
-                    pm2 start index.js --name ${APP_NAME}
-                    pm2 save
-
-                    echo "App running at port ${APP_PORT}"
-                """
-            }
-        }
+        pm2 delete nodejs-app || true
+        nohup pm2 start index.js --name nodejs-app > /dev/null 2>&1 &
+        pm2 save
+        '''
+    }
+}
 
     }
 
