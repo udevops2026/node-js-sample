@@ -83,7 +83,7 @@ pipeline {
 
                     # Start new instance
                     cd ${APP_DIR}
-                    pm2 start server.js --name ${APP_NAME}
+                    pm2 start index.js --name ${APP_NAME}
                     pm2 save
 
                     echo "App running at port ${APP_PORT}"
