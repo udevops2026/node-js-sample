@@ -1,51 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My Shopping App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Flipkart Demo Store</title>
+
 <style>
 body {
-    font-family: Arial;
     margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f3f6;
 }
-header {
+
+/* Navbar */
+.navbar {
     background: #2874f0;
     color: white;
-    padding: 15px;
-    text-align: center;
-}
-.products {
+    padding: 15px 30px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.search-box input {
+    width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+/* Banner */
+.banner {
+    background: white;
+    margin: 20px;
+    padding: 30px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2874f0;
+    border-radius: 10px;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.category {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Products */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
     gap: 20px;
     padding: 20px;
 }
+
 .card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    width: 200px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.price {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background: #172337;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
 }
 </style>
 </head>
 <body>
 
-<header>
-    <h1>My Flipkart Demo Store</h1>
-</header>
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">Flipkart Demo</div>
+    <div class="search-box">
+        <input type="text" placeholder="Search for products...">
+    </div>
+    <div class="nav-links">
+        <div>Login</div>
+        <div>Cart 🛒</div>
+    </div>
+</div>
 
+<!-- Banner -->
+<div class="banner">
+    Big Billion Days Sale 🚀 Up To 70% Off!
+</div>
+
+<!-- Categories -->
+<div class="categories">
+    <div class="category">Mobiles</div>
+    <div class="category">Fashion</div>
+    <div class="category">Electronics</div>
+    <div class="category">Appliances</div>
+    <div class="category">Grocery</div>
+</div>
+
+<!-- Products -->
 <div class="products">
+
     <div class="card">
+        <img src="https://via.placeholder.com/150" alt="iPhone">
         <h3>iPhone 15</h3>
-        <p>₹79,999</p>
+        <p class="price">₹79,999</p>
     </div>
 
     <div class="card">
+        <img src="https://via.placeholder.com/150" alt="TV">
         <h3>Samsung TV</h3>
-        <p>₹45,999</p>
+        <p class="price">₹45,999</p>
     </div>
 
     <div class="card">
+        <img src="https://via.placeholder.com/150" alt="Laptop">
         <h3>Laptop</h3>
-        <p>₹65,000</p>
+        <p class="price">₹65,000</p>
     </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/150" alt="Shoes">
+        <h3>Nike Shoes</h3>
+        <p class="price">₹4,999</p>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    © 2026 Flipkart Demo Store | Powered by Node.js + Jenkins CI/CD
 </div>
 
 </body>
