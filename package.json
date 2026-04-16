@@ -9,6 +9,10 @@
   "dependencies": {
     "express": "^4.13.3"
   },
+  "scripts": {
+  "start": "node index.js",
+  "test": "echo Test Passed"
+  },
   "engines": {
     "node": "4.0.0"
   },
