@@ -93,22 +93,6 @@ pipeline {
             }
         }
 
-        stage('Deploy to PROD') {
-            when {
-                expression { params.ENV == 'PROD' }
-            }
-            steps {
-                // Manual approval before PROD deploy!
-                input message: 'Deploy to PRODUCTION?',
-                      ok: 'Yes, Deploy!'
-                echo "Deploying to PRODUCTION..."
-                sh """
-                    cd ${APP_DIR}
-                    pm2 restart ${APP_NAME}
-                """
-            }
-        }
-
     }
 
     post {
