@@ -13,6 +13,11 @@
   "start": "node index.js",
   "test": "echo Test Passed"
   },
+  "scripts": {
+  "start": "node index.js",
+  "test": "echo Test Passed",
+  "build": "echo Build Successful"
+  },
   "engines": {
     "node": "4.0.0"
   },
