@@ -1,5 +1,3 @@
-@Library('jenkins-shared-library') _
-
 pipeline {
     agent { label 'agent-demo-1' }
 
